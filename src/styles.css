@@ -36,3 +36,31 @@ footer{color:#efdaea;text-align:center;padding:2rem 1rem 4rem;font-size:.83rem;l
 @media(max-width:990px){.hero{grid-template-columns:1fr;gap:0}.hero-copy{text-align:center}.hero-description{margin:0 auto}.hero-actions{justify-content:center}.character-desk{min-height:470px;padding-top:2rem}.gloob-wrap{max-width:390px}.site-header{justify-content:center}.site-header nav{order:3;flex:1 0 100%}.progress-pill{margin-left:auto}}
 @media(max-width:690px){.hero{padding:2rem 0 3rem;min-height:auto}h1{font-size:clamp(4rem,19vw,6rem)}.hero-role{font-size:1.38rem}.character-desk{min-height:410px}.directory-grid,.story-grid,.achievements .stickers{grid-template-columns:1fr}.directory-card{min-height:185px}.directory-glyph{margin:.5rem 0}.department-body{grid-template-columns:1fr}.star-preview,.mini-moon,.mini-orbits{display:none}.profile-layout{grid-template-columns:1fr}.site-header nav{justify-content:center}.site-header nav a{font-size:.74rem;padding:.45rem}.progress-pill{margin:0}.marquee{font-size:.6rem}.desk-notice{font-size:.58rem;right:0}.speech{font-size:.85rem}.paper-section{margin-bottom:1.2rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Signature Stardust Sorting workbench */
+.stardust-workbench{padding:clamp(1.3rem,3.5vw,2.6rem);background:#fff4db}
+.stardust-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.status-chip{border:3px solid #44284e;background:#ffdd78;color:#35223d;border-radius:100px;font:900 .8rem ui-monospace,monospace;padding:.6rem 1rem}
+.workbench-note{font-size:1rem;line-height:1.55;margin:.25rem 0 1.3rem}
+.rescue-strip{background:#efe2f7;border:3px dashed #986fb0;border-radius:13px;padding:1rem;margin:1rem 0;display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
+.rescue-strip strong{color:#553166}.rescue-strip .btn{font-size:.78rem}
+.workbench-grid{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(320px,1.2fr);gap:1.3rem;margin:1.4rem 0}
+.star-tray{border:3px dashed #9c78a3;background:#f7e8f7;border-radius:14px;padding:1rem}
+.star-tray h3,.chart-board h3{margin:.3rem 0 1rem;font-size:1.32rem}
+.star-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+.star-button{display:flex;flex-direction:column;align-items:center;gap:.1rem;min-height:92px;border:3px solid #6f5578;border-radius:11px;background:#fff9e9;color:#442e50;padding:.45rem;cursor:pointer}
+.star-button .star-drawing{color:#eab554;font-size:2rem;text-shadow:2px 2px 0 #634f71}
+.star-button strong{font-size:.78rem}.star-button span:last-child{font:.71rem ui-monospace,monospace}
+.star-button.selected{outline:4px solid #efb44f;outline-offset:2px;background:#ffead3}
+.chart-board{display:grid;gap:.65rem}
+.chart-button{width:100%;display:grid;grid-template-columns:1fr auto;align-items:center;text-align:left;border:3px solid #554267;border-radius:14px;background:#f6e5cd;min-height:108px;padding:.85rem;cursor:pointer;gap:.4rem}
+.chart-button:hover{background:#fff1b1}.chart-button.finished{background:#e3f2d7;border-color:#5c9372}
+.chart-name{display:block;font:900 1.15rem 'Lilita One',system-ui}.chart-hint{font-size:.79rem;display:block;margin-top:.3rem}.chart-sockets{display:flex;gap:.5rem}
+.star-socket{width:42px;height:42px;border:3px dashed #b99bba;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;color:#d8aa52}.star-socket.filled{background:#ffe29d;border:3px solid #c69243}
+.approved-stamp{font:900 .72rem ui-monospace,monospace;color:#477d54;grid-column:1/-1}
+.workbench-feedback{font-weight:900;padding:1rem;border:2px solid #c9aacb;background:#fff8e9;border-radius:12px;min-height:60px}
+.reset-link,.inline-cancel{background:transparent;border:0;text-decoration:underline;cursor:pointer;color:#694e7b;font-weight:900;padding:.65rem;min-height:44px}
+.inline-cancel{color:#f4d6ed}.boop-button{background:#ffc7ce;color:#372143;margin:.5rem 0}
+.achievements .stickers>div.earned{filter:none;color:#442a4b;border:4px solid #c18e47;background:#ffeaa7;box-shadow:4px 4px 0 #543c5e}
+@media(max-width:770px){.workbench-grid{grid-template-columns:1fr}.star-buttons{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:440px){.star-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}.chart-button{grid-template-columns:1fr}.chart-sockets{justify-content:flex-start}}
