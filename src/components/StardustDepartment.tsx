@@ -1,4 +1,4 @@
-import { useState, type Dispatch } from 'react';
+import { useEffect, useState, type Dispatch } from 'react';
 import { charts, stars, type ChartId, type Progress, type ProgressAction } from '../state';
 
 type RescuePhase = 'ready' | 'demonstrating' | 'boop' | 'released' | 'idle';
@@ -13,10 +13,17 @@ export function StardustDepartment({ progress, dispatch, rescuePhase, practice, 
   const [selected, setSelected] = useState<string | null>(null);
   const [feedback, setFeedback] = useState("Pick a loose star, then choose the chart with the matching symbol!");
   const isSortingBlocked = rescuePhase === 'demonstrating' || rescuePhase === 'boop';
+  useEffect(() => {
+    if (rescuePhase === 'demonstrating') setSelected(null);
+  }, [rescuePhase]);
   const available = stars.filter(star => !progress.stars.includes(star.id) && !(isSortingBlocked && star.id === 'crown-1'));
   function place(chartId: ChartId) {
     if (!selected) {
       setFeedback('PICK A STAR FIRST! Even very official filing requires paperwork.');
+      return;
+    }
+    if (isSortingBlocked && selected === 'crown-1') {
+      setFeedback("GLOOB HAS THAT CROWN STAR IN HIS TUMMY! Boop him first or skip the accident.");
       return;
     }
     const star = stars.find(s => s.id === selected);
