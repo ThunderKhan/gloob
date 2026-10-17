@@ -1,4 +1,4 @@
-import { useRef, useState, type PointerEvent } from 'react';
+import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import { GloobArt, type GloobExpression } from '../art/GloobArt';
 
 type Props = {
@@ -11,6 +11,9 @@ type Props = {
 export function GloobCharacter({ expression = 'happy', onHeadStar, onTummyBoop, className = '' }: Props) {
   const [pupil, setPupil] = useState({ x: 0, y: 0 });
   const frame = useRef<number | null>(null);
+  useEffect(() => () => {
+    if (frame.current !== null) cancelAnimationFrame(frame.current);
+  }, []);
   function point(event: PointerEvent<HTMLDivElement>) {
     if (event.pointerType === 'touch' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (frame.current !== null) cancelAnimationFrame(frame.current);

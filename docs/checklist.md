@@ -99,4 +99,5 @@ This implementation roadmap applies the approved scope, PRD, and spec. The reque
 
 ## Revisions
 
+- 2026-10-18: Initial source scaffolding and Stardust implementation committed to a feature branch. Dependency installation, tests, visual review, and Vercel deployment are still **unverified**; no slice is checked off prematurely.
 - Initial roadmap inferred from the approved technical spec; implementation will use testable, independently committed slices.

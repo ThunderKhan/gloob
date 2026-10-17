@@ -117,6 +117,7 @@ export function progressReducer(state: Progress, action: ProgressAction): Progre
           mode: 'editing', speed: 'normal', direction: 'clockwise', earned: false
         } }, 'orbits');
       }
+      return state;
     }
     default: return state;
   }
