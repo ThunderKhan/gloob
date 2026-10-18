@@ -25,3 +25,15 @@ export function ConstellationArt({ chart, filled }: Props) {
     </svg>
   );
 }
+
+export function StarTokenArt({ marking }: { marking: 'CROWN' | 'CRESCENT' | 'ROCKET' }) {
+  return (
+    <svg viewBox="0 0 90 82" className="star-token-art" aria-hidden="true">
+      <path d="M45 3 L55 27 L82 28 L62 46 L69 74 L45 60 L21 74 L28 46 L8 28 L35 27Z" fill="#ffda79" stroke="#8a617c" strokeWidth="4" strokeLinejoin="round"/>
+      <circle cx="45" cy="43" r="14" fill="#fff3d1" opacity=".82"/>
+      {marking === 'CROWN' && <path d="M34 51 L33 37 L40 43 L45 33 L50 43 L57 37 L56 51Z" fill="#8c5b81" stroke="#5a3f60" strokeWidth="2" strokeLinejoin="round" />}
+      {marking === 'CRESCENT' && <path d="M48 33 a11 11 0 1 0 11 16 a9 9 0 0 1 -11 -16Z" fill="#865e93"/>}
+      {marking === 'ROCKET' && <g transform="rotate(35 45 43)"><path d="M45 28 Q56 39 50 53 L40 53 Q34 39 45 28Z" fill="#7a8eaf" stroke="#665777" strokeWidth="2"/><circle cx="45" cy="41" r="3" fill="#fff3d1"/><path d="M42 53 l3 8 3 -8" fill="#f2a18f"/></g>}
+    </svg>
+  );
+}

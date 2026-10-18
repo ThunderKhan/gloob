@@ -1,5 +1,6 @@
 import { useEffect, useState, type Dispatch } from 'react';
 import { charts, stars, type ChartId, type Progress, type ProgressAction } from '../state';
+import { ConstellationArt, StarTokenArt } from './ConstellationArt';
 
 type RescuePhase = 'ready' | 'demonstrating' | 'boop' | 'released' | 'idle';
 type Props = {
@@ -55,7 +56,7 @@ export function StardustDepartment({ progress, dispatch, rescuePhase, practice, 
         <div className="window-top"><span>✦ / DEPARTMENT 001 / STARDUST SORTING CO.</span><span className="window-dots" aria-hidden="true">● ● ●</span></div>
         <div className="stardust-workbench">
           <div className="stardust-top"><div><p className="eyebrow">THE VERY IMPORTANT STAR DESK</p><h2 id="stardust-title">Help Me Sort The Stars!</h2></div><span className="status-chip">STARS FILED: {progress.stars.length}/6</span></div>
-          <p className="workbench-note">Six cosmic employees have escaped their folders! Match each star's printed symbol to the correct two-star chart. No dragging required.</p>
+          <p className="workbench-note">The stars escaped their folders! Pick a star token, then choose its matching illustrated chart. Two stars finish each constellation. No dragging required!</p>
           <div className="rescue-strip">
             <strong>✦ GLOOB'S ACCIDENTAL STAR SNACK</strong>
             {rescuePhase === 'ready' && <button type="button" className="btn primary" onClick={beginRescue}>WATCH ME ORGANIZE!</button>}
@@ -70,7 +71,7 @@ export function StardustDepartment({ progress, dispatch, rescuePhase, practice, 
               <h3>UNFILED STARS ({available.length})</h3>
               <div className="star-buttons" role="group" aria-label="Choose an unfiled star">
                 {available.map(star => <button key={star.id} type="button" className={'star-button ' + (selected === star.id ? 'selected' : '')} aria-pressed={selected === star.id} onClick={() => {setSelected(star.id);setFeedback(star.marking + ' STAR SELECTED. Now pick its chart!');}}>
-                  <span aria-hidden="true" className="star-drawing">✦</span><strong>{star.name}</strong><span>{star.glyph} {star.marking}</span>
+                  <StarTokenArt marking={star.marking} /><strong>{star.name}</strong><span>{star.glyph} {star.marking}</span>
                 </button>)}
               </div>
               {available.length === 0 && <p>EVERY STAR HAS A HOME. WHAT A DAY!!</p>}
@@ -79,7 +80,8 @@ export function StardustDepartment({ progress, dispatch, rescuePhase, practice, 
               {charts.map(chart => {
                 const filled = progress.stars.filter(id => stars.find(s => s.id === id)?.chart === chart.id).length;
                 return <button type="button" key={chart.id} className={'chart-button ' + (filled === 2 ? 'finished' : '')} onClick={() => place(chart.id)}>
-                  <span><span className="chart-name">{chart.name}</span><span className="chart-hint">MATCH: {chart.marking} · {filled}/2 FILED</span></span>
+                  <span className="chart-description"><span className="chart-name">{chart.name}</span><span className="chart-hint">MATCH: {chart.marking} · {filled}/2 FILED</span></span>
+                  <span className="chart-visual"><ConstellationArt chart={chart.id} filled={filled} /></span>
                   <span className="chart-sockets" aria-hidden="true">{[0,1].map(i => <span key={i} className={'star-socket ' + (i < filled ? 'filled' : '')}>{i < filled ? '✦' : '·'}</span>)}</span>
                   {filled === 2 && <span className="approved-stamp">✓ CONSTELLATION APPROVED!</span>}
                 </button>;

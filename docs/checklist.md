@@ -99,5 +99,7 @@ This implementation roadmap applies the approved scope, PRD, and spec. The reque
 
 ## Revisions
 
+- 2026-10-18: Revised presentation in response to user's screenshot and agreed references: illustrated contiguous HQ with Stardust desk, original room entrances, drawn constellation panels and story scenes. Gameplay scope and reducer logic remain unchanged. New browser view requires user validation.
+
 - 2026-10-18: Initial source scaffolding and Stardust implementation committed to a feature branch. Dependency installation, tests, visual review, and Vercel deployment are still **unverified**; no slice is checked off prematurely.
 - Initial roadmap inferred from the approved technical spec; implementation will use testable, independently committed slices.
