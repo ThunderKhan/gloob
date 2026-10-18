@@ -90,10 +90,6 @@ export function App() {
     }
   }
 
-  function wave() {
-    setExpression(expression === 'excited' ? 'proud' : 'excited');
-    setMessage('YOU WAVED AT ME!! I SHALL FILE THIS UNDER FRIENDSHIP.');
-  }
   function headStar() {
     const next = starTaps + 1;
     setStarTaps(next);
